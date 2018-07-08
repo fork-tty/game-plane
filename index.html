@@ -91,7 +91,8 @@
             );
             window.frameServer = new FrameServer(window.store.observer);
 
-            window.store.plane = new Plane(cg, 200, 500);
+            var initPlaneX = window.screen.availWidth / 2 - 22;
+            window.store.plane = new Plane(cg, initPlaneX, 500);
             window.store.observer.attach(window.store.plane);
 
             var blood = new Blood(
