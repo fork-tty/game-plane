@@ -79,9 +79,9 @@
                 document.getElementById('line')
             );
             window.store.plane.onBeenShot = function() {
-                controllerDom.style.background = 'rgb(255, 177, 177)';
+                controllerDom.style.background = 'rgba(255, 177, 177, 0.4)';
                 setTimeout(() => {
-                    controllerDom.style.background = '#FFF';
+                    controllerDom.style.background = 'rgba(255,255,255,0)';
                 }, 200);
                 if (!blood.isEmpty()) {
                     return blood.cut(20);
