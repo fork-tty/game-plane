@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/lib/observer.js"></script>
+    <script src="/lib/obclient.js"></script>
+    <script src="/lib/cg.js"></script>
+    <script src="/lib/frameServer.js"></script>
+    <script src="/lib/bullet.js"></script>
+    <script src="/lib/plane.js"></script>
+    <script src="/lib/alien.js"></script>
+    <script src="/lib/resource.js"></script>
+    <script src="/lib/controller.js"></script>
+    <script src="/lib/launcher.js"></script>
+    <script src="/lib/actions.js"></script>
+    <script src="/lib/blood.js"></script>
+    <link href="/style.css" type="text/css" rel="stylesheet" />
+    <title>Fight!</title>
+</head>
+<body>
+    <div id="notice">
+        <h3 id="notice-message">准备好了吗 ?</h3>
+        <h2 id="game-message"></h2>
+        <div id="game-line">
+            <button type="button" id="game-start">开始游戏</button>
+        </div>
+    </div>
+    <div class="show">
+        <div id="blooder">
+            <div id="line"></div>
+        </div>
+        <div class="pulse">
+            <button type="button" id="pulse">toggle</button>
+        </div>
+    </div>
+    <canvas id="cg"></canvas>
+    <div id="controller">
+        <div id="ctrl"></div>
+        <div id="launcher"></div>
+    </div>
+
+    <script>
+
+    window.store = new Object();
+
+    var notice = document.getElementById('notice');
+    var noticeMessage = document.getElementById('notice-message');
+    var gameMessage = document.getElementById('game-message');
+    var gameLine = document.getElementById('game-line');
+    var pulse = document.getElementById('pulse');
+
+    window.document.body.onload = function(event) {
+        window.resource = new Resource({
+            plane1: '/image/plane-2.png',
+            bullet: '/image/boos-bullet.png',
+            alien1: '/image/enemy-1.png',
+            alien2: '/image/enemy-2.png',
+            alien3: '/image/enemy-3.png',
+            boom: '/image/boom1.png'
+        });
+        var main = (function() {
+            window.store.score = 0;
+
+            window.store.observer = new Observer();
+            var cg = new CG(
+                document.getElementById('cg')
+            );
+            window.frameServer = new FrameServer(window.store.observer);
+
+            window.store.plane = new Plane(cg, 200, 500);
+            window.store.observer.attach(window.store.plane);
+
+            var blood = new Blood(
+                document.getElementById('line')
+            );
+            window.store.plane.onBeenShot = function() {
+                if (!blood.isEmpty()) {
+                    return blood.cut(20);
+                }
+                Observer.clear();
+                gameLine.innerHTML = '本游戏由 O My TTY 制作 :)';
+                gameLine.style.fontSize = '1rem';
+                noticeMessage.innerText = '游戏结束';
+                gameMessage.innerText = '击落敌机 '+ window.store.score + ' 架';
+                notice.style.display = 'block';
+            };
+
+            var actions = new Actions(cg);
+            window.store.observer.attach(actions);
+
+            var controller = new Controller(
+                document.getElementById('ctrl'),
+                document.getElementById('launcher')
+            );
+
+            window.store.observer.attach(new Launcher(cg, launcher));
+
+            var gameStart = document.getElementById('game-start');
+            gameStart.onclick = function(e) {
+                notice.style.display = 'none';
+                frameServer.start();
+            };
+
+            pulse.onclick= function(e) {
+                if (frameServer.isStart) {
+                    frameServer.stop();
+                } else {
+                    frameServer.start();
+                }
+            };
+        });
+
+        window.resource.load(main);
+    };
+    </script>
+</body>
+</html>

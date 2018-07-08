@@ -1,0 +1,125 @@
+* { margin: 0; padding: 0; }
+body, #cg { position: fixed; }
+body {
+    position: fixed;
+    height: 100%;
+}
+#controller {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+}
+#controller #ctrl {
+    float: left;
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    background: rgba(153, 153, 153, 0.5);
+}
+
+#launcher {
+    float: right;
+    margin-top: 30px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background: rgba(252, 33, 33, 0.5);
+    height: 60px;
+    width: 60px;
+}
+
+.show {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: rgba(204, 204, 204, 0.5);
+}
+
+#blooder {
+    position: relative;
+    top: 10px;
+    left: 0;
+    width: 80%;
+    height: 20px;
+    background: rgba(128, 128, 128, 0.733);
+}
+
+#line {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(39, 177, 39, 0.678);
+}
+
+#notice {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+}
+
+#notice-message, #game-line {
+    position: relative;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    height: 3rem;
+    font-size: 2rem;
+    line-height: 3rem;
+    text-align: center;
+    color: white;
+}
+
+#game-message {
+    position: relative;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    height: 2rem;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    text-align: center;
+    color: rgb(255, 104, 104);
+}
+
+#game-line {
+    top: 50%;
+}
+
+#game-start {
+    display: inline;
+    font-size: 1.5rem;
+    color: white;
+    background: #1E90FF;
+    border: 0;
+    text-align: center;
+    padding: 10px;
+}
+
+#pulse {
+    float: right;
+    margin-top: 5px;
+    height: 30px;
+    width: 90%;
+    border: 0;
+    background: #AAA;
+    color: white;
+}
+
+.pulse {
+    position: relative;
+    top: -20px;
+    left: 80%;
+    width: 15%;
+    height: 40px;
+}
