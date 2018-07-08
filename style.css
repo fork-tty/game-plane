@@ -97,7 +97,7 @@ body {
 }
 
 #game-start {
-    display: inline;
+    display: none;
     font-size: 1.5rem;
     color: white;
     background: #1E90FF;

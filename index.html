@@ -22,7 +22,7 @@
 <body>
     <div id="notice">
         <h3 id="notice-message">准备好了吗 ?</h3>
-        <h2 id="game-message"></h2>
+        <h2 id="game-message">游戏正在加载，请耐心等候...</h2>
         <div id="game-line">
             <button type="button" id="game-start">开始游戏</button>
         </div>
@@ -49,6 +49,7 @@
     var noticeMessage = document.getElementById('notice-message');
     var gameMessage = document.getElementById('game-message');
     var gameLine = document.getElementById('game-line');
+    var gameStart = document.getElementById('game-start');
     var pulse = document.getElementById('pulse');
 
     var controllerDom = document.getElementById('controller');
@@ -116,6 +117,9 @@
                     frameServer.start();
                 }
             };
+
+            gameMessage.innerText = '加载成功～';
+            gameStart.style.display = 'inline';
         });
 
         window.resource.load(main);
