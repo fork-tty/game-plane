@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="/lib/observer.js"></script>
-    <script src="/lib/obclient.js"></script>
-    <script src="/lib/cg.js"></script>
-    <script src="/lib/frameServer.js"></script>
-    <script src="/lib/bullet.js"></script>
-    <script src="/lib/plane.js"></script>
-    <script src="/lib/alien.js"></script>
-    <script src="/lib/resource.js"></script>
-    <script src="/lib/controller.js"></script>
-    <script src="/lib/launcher.js"></script>
-    <script src="/lib/actions.js"></script>
-    <script src="/lib/blood.js"></script>
-    <link href="/style.css" type="text/css" rel="stylesheet" />
+    <script src="/game-plane/lib/observer.js"></script>
+    <script src="/game-plane/lib/obclient.js"></script>
+    <script src="/game-plane/lib/cg.js"></script>
+    <script src="/game-plane/lib/frameServer.js"></script>
+    <script src="/game-plane/lib/bullet.js"></script>
+    <script src="/game-plane/lib/plane.js"></script>
+    <script src="/game-plane/lib/alien.js"></script>
+    <script src="/game-plane/lib/resource.js"></script>
+    <script src="/game-plane/lib/controller.js"></script>
+    <script src="/game-plane/lib/launcher.js"></script>
+    <script src="/game-plane/lib/actions.js"></script>
+    <script src="/game-plane/lib/blood.js"></script>
+    <link href="/game-plane/style.css" type="text/css" rel="stylesheet" />
     <title>Fight!</title>
 </head>
 <body>
@@ -53,12 +53,12 @@
 
     window.document.body.onload = function(event) {
         window.resource = new Resource({
-            plane1: '/image/plane-2.png',
-            bullet: '/image/boos-bullet.png',
-            alien1: '/image/enemy-1.png',
-            alien2: '/image/enemy-2.png',
-            alien3: '/image/enemy-3.png',
-            boom: '/image/boom1.png'
+            plane1: '/game-plane/image/plane-2.png',
+            bullet: '/game-plane/image/boos-bullet.png',
+            alien1: '/game-plane/image/enemy-1.png',
+            alien2: '/game-plane/image/enemy-2.png',
+            alien3: '/game-plane/image/enemy-3.png',
+            boom: '/game-plane/image/boom1.png'
         });
         var main = (function() {
             window.store.score = 0;
