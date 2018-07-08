@@ -144,7 +144,8 @@
         if (!IsPC()) {
             window.resource.load(main);
         } else {
-            alert('请使用手机打开，或将浏览器调整为手机模式～');
+            noticeMessage.innerText = '设备类型异常';
+            gameMessage.innerText = '请使用手机打开，或将浏览器调整为手机模式～';
         }
     };
     </script>
