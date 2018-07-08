@@ -51,6 +51,8 @@
     var gameLine = document.getElementById('game-line');
     var pulse = document.getElementById('pulse');
 
+    var controllerDom = document.getElementById('controller');
+
     window.document.body.onload = function(event) {
         window.resource = new Resource({
             plane1: '/game-plane/image/plane-2.png',
@@ -76,6 +78,10 @@
                 document.getElementById('line')
             );
             window.store.plane.onBeenShot = function() {
+                controllerDom.style.background = 'rgb(255, 143, 143)';
+                setTimeout(() => {
+                    controllerDom.style.background = '#FFF';
+                }, 200);
                 if (!blood.isEmpty()) {
                     return blood.cut(20);
                 }
