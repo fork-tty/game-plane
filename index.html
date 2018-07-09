@@ -16,6 +16,7 @@
     <script src="/game-plane/lib/launcher.js"></script>
     <script src="/game-plane/lib/actions.js"></script>
     <script src="/game-plane/lib/blood.js"></script>
+    <script src="/game-plane/lib/bgmap.js"></script>
     <link href="/game-plane/style.css" type="text/css" rel="stylesheet" />
     <title>Fight!</title>
 </head>
@@ -35,7 +36,8 @@
             <button type="button" id="pulse">toggle</button>
         </div>
     </div>
-    <canvas id="cg"></canvas>
+    <canvas id="map" class="cvs"></canvas>
+    <canvas id="cg" class="cvs"></canvas>
     <div id="controller">
         <div id="ctrl"></div>
         <div id="launcher"></div>
@@ -80,7 +82,9 @@
             alien1: '/game-plane/image/enemy-1.png',
             alien2: '/game-plane/image/enemy-2.png',
             alien3: '/game-plane/image/enemy-3.png',
-            boom: '/game-plane/image/boom1.png'
+            boom: '/game-plane/image/boom1.png',
+            map1: '/game-plane/image/map-fac-1.jpg',
+            map2: '/game-plane/image/map-fac-2.jpg'
         });
         var main = (function() {
             window.store.score = 0;
@@ -89,6 +93,13 @@
             var cg = new CG(
                 document.getElementById('cg')
             );
+            var map = new CG(
+                document.getElementById('map')
+            );
+            
+            var bgmap = new Bgmap(map);
+            window.store.observer.attach(bgmap);
+
             window.frameServer = new FrameServer(window.store.observer);
 
             var initPlaneX = window.screen.availWidth / 2 - 22;

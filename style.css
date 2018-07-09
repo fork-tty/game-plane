@@ -1,5 +1,7 @@
 * { margin: 0; padding: 0; }
-body, #cg { position: fixed; }
+body, .cvs { position: fixed; }
+
+
 body {
     position: fixed;
     height: 100%;
@@ -11,6 +13,7 @@ body {
     height: auto;
 }
 #controller #ctrl {
+    z-index: 20;
     float: left;
     border-radius: 50%;
     height: 120px;
